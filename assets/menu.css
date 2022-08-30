@@ -11,7 +11,7 @@
 .navbar {
   margin: 40px 50px;
   overflow: hidden;
-  background-color: #0c2636;
+  background-color: #171717;
 }
 
 .nav a {
@@ -28,7 +28,7 @@
 
 .nav :hover {
   text-decoration: none;
-  color: #0c2636;
+  color: #171717;
 }
 .selected {
   background-color: darkcyan;
