@@ -2076,6 +2076,12 @@ jQuery(document).on("action.ready_trx_addons", function () {
   }
   function trx_addons_cpt_layouts_fix_rows(rows, rows_always, resize) {
     if (jQuery(window).width() < 768) {
+      rows.each(function () {
+        if (!jQuery(this).hasClass("sc_layouts_row_fixed_always"))
+          jQuery(this)
+            .removeClass("sc_layouts_row_fixed_on")
+            .css({ top: "auto" });
+      });
       if (rows_always.length == 0) return;
       else rows = rows_always;
     }
