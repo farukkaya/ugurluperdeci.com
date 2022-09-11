@@ -1,0 +1,37 @@
+name: 🚀 Deploy UgurluPerdeci.com on push
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: 🔨 Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 5.0.x
+    - name: 🔨 Restore Dependencies
+      run: dotnet restore
+    - name: 🔨 Build Project
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      
+    - name: 📂 Publish Site
+      run: dotnet publish ./ugurlurperdeci/ugurlurperdeci.csproj -o ./publish -c Release
+
+    - name: 🚀 'FTP Upload'
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: 94.73.149.214
+        username: u0857498
+        password: _Ugurlu030303Perde_
+        local-dir:  ./publish/
+        server-dir: /  
