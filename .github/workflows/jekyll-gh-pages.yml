@@ -25,7 +25,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
       
     - name: 📂 Publish Site
-      run: dotnet publish ./ugurlurperdeci/ugurlurperdeci.csproj -o ./publish -c Release
+      run: dotnet publish ./ugurlurperdeci.csproj -o ./publish -c Release
 
     - name: 🚀 'FTP Upload'
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
