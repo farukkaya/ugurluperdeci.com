@@ -34,4 +34,4 @@ jobs:
         username: u0857498
         password: _Ugurlu030303Perde_
         local-dir:  ./publish/
-        server-dir: /httpdocs
+        server-dir: /httpdocs/
